@@ -1,13 +1,13 @@
 class Solution {
 public:
-    void swap(vector<int>& nums, int i , int j){
+    void swap(vector<int>& nums, int i, int j){
       int t = nums[i];
       nums[i] = nums[j];
       nums[j] = t;
     }
     void reverse(vector<int>& nums, int i, int j){
       while(i < j){
-        swap(nums,i,j);
+        swap(nums, i, j);
         i++;
         j--;
       }
@@ -24,11 +24,11 @@ public:
         if(toSwap != -1){
           for(int fromSwap = n - 1; fromSwap > toSwap; fromSwap--){
             if(nums[fromSwap] > nums[toSwap]){
-              swap(nums,fromSwap,toSwap);
+              swap(nums, fromSwap, toSwap);
               break;
             }
           }
         }
-        reverse(nums,toSwap+1,n-1);
+        reverse(nums,toSwap + 1, n - 1);
     }
 };
