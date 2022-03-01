@@ -29,6 +29,6 @@ public:
             }
           }
         }
-        reverse(nums,toSwap + 1, n - 1);
+        reverse(nums, toSwap + 1, n - 1);
     }
 };
