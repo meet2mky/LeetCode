@@ -8,14 +8,14 @@ public:
         index[arr[n-1]] = n-1;
         int res = 1;
         for(int i = n - 2; i >= 0; i--){
-            map<int,int>::iterator upper =  index.upper_bound(arr[i]); //>
-            map<int,int>::iterator lower =  index.lower_bound(arr[i]); //>= 
-            if(upper != index.begin()){
-                upper--;
-                even[i] = odd[(*upper).second]; 
-            }
+            map<int,int>::iterator lower =  index.lower_bound(arr[i]); //>=
             if(lower != index.end()){
                 odd[i] = even[(*lower).second];
+            }
+            map<int,int>::iterator upper = index.upper_bound(arr[i]); //>
+            if(upper != index.begin()){
+                upper--;
+                even[i] = odd[(*upper).second];
             }
             res += odd[i];
             index[arr[i]] = i;
