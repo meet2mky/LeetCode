@@ -1,39 +1,25 @@
 class MedianFinder {
 public:
-    multiset<int> L;
-    multiset<int> R;
+    priority_queue<int> small, large;
     MedianFinder() {
         
     }
     
     void addNum(int num) {
-        L.insert(num);
-        if(L.size() - R.size() > 1){
-            auto it = L.end();
-            --it;
-            R.insert(*it);
-            L.erase(it);
-        }
-        if(L.size() && R.size()){
-            while(*L.rbegin() > *R.begin()){
-                auto lit = L.end();
-                --lit;
-                auto rit = R.begin();
-                int r = *lit;
-                int l = *rit;
-                L.erase(lit);
-                R.erase(rit);
-                L.insert(l);
-                R.insert(r);
-            }
+        small.push(num);
+        large.push(-small.top());
+        small.pop();
+        if(large.size() > small.size()){
+          small.push(-large.top());
+          large.pop();
         }
     }
     
     double findMedian() {
-        if(L.size() == R.size()){
-            return (double)(*L.rbegin() + *R.begin())/2.0;
+        if(small.size() == large.size()){
+            return (small.top() - large.top()) / 2.0;
         }
-        return (double)(*L.rbegin());
+        return small.top();
     }
 };
 
