@@ -4,7 +4,7 @@ public:
         return ch == '*' || ch == '/';
     }
     int getRes(int a, int b, char op){
-        cout << a << op << b << endl;
+        //cout << a << op << b << endl;
         switch(op){
             case '*':
                 return a*b;
@@ -24,7 +24,7 @@ public:
         for(auto c: s){
             if(c == ' ')continue;
             if(c >= '0' && c <= '9'){
-                num = num * 10 -'0' + c;
+                num = num * 10 - '0' + c;
             }else{
                 operands.push(num);
                 num = 0;
