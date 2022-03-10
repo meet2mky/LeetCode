@@ -10,7 +10,7 @@
 class Codec {
     void serialize(TreeNode* root, ostringstream& out){
         if(!root){
-            out << "N "; 
+            out << "NULL "; 
             return;
         }
         out << root->val << " ";
@@ -20,7 +20,7 @@ class Codec {
     TreeNode* deserialize(istringstream& in){
         string curr;
         in >> curr;
-        if(curr == "N"){
+        if(curr == "NULL"){
             return NULL;
         }
         TreeNode* root = new TreeNode(stoi(curr));
