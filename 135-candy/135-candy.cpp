@@ -2,7 +2,6 @@ class Solution {
 public:
     int candy(vector<int>& ratings) {
         int n = ratings.size();
-        if(n == 1) return 1;
         vector<int> candies(n, 1);
         for(int i = 0; i < n; i++){
             if(i && ratings[i] > ratings[i-1]){
