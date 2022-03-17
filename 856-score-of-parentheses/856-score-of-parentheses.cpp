@@ -1,14 +1,12 @@
 class Solution {
 public:
     int scoreOfParentheses(string s) {
-        stack<char> S;
         stack<int> score;
         for(auto ch: s){
             if(ch == '('){
-                S.push(ch);
                 score.push(0);
             }else{
-                S.pop();
+
                 if(score.top() == 0){
                     score.pop();
                     score.push(1);
