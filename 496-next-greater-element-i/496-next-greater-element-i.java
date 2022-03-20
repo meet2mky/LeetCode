@@ -1,5 +1,6 @@
 class Solution {
     public int[] nextGreaterForAll(int [] nums){
+        // O(n)
         int[] nextGreater = new int[nums.length];
         Stack<Integer> stack = new Stack<Integer>();
         for(int i = 0; i < nums.length; i++){
