@@ -19,7 +19,6 @@ public:
 	        currentEmail.push_back(emails[i][j]);
             j++;
         }
-        cout << currentEmail << endl;
         uniqueEmails.insert(currentEmail);
     }
     return uniqueEmails.size();
