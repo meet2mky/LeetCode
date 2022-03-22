@@ -2,19 +2,18 @@ class Solution {
 public:
     string getSmallestString(int n, int k) {
         string res = "";
-        while(n > 0){
-            if(n *26 == k){
-                res += string(n,'z');
-                n = 0;
-            }else if((n - 1)* 26  >= k - 1){
-                res += "a";
-                n--;
-                k--;
-            }else{
-                res.push_back( 'a' + (k-1) - (n-1)*26);
-                n--;
-                k-= res.back() - 'a' + 1;
-            }
+        while((n-1)*26 >= k-1){
+            res.push_back('a');
+            n--;
+            k--;
+        }
+        if(k % 26 != 0){
+            res.push_back('a'  - 1 + k % 26);
+            k -= k %26;
+        }
+        while(k){
+            res.push_back('z');
+            k-=26;
         }
         return res;
     }
