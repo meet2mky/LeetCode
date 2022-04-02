@@ -15,7 +15,7 @@ public:
             l++;
             r--;
         }
-        if(validPalindrome(s, l + 1, r) ||validPalindrome(s, l, r - 1)) return true;
+        if(validPalindrome(s, l + 1, r) || validPalindrome(s, l, r - 1)) return true;
         return false;
     }
 };
