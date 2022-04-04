@@ -23,6 +23,7 @@ public:
             tmp = tmp->next;
             b = b->next;
         }
+        // a is kth node from start and b is kth node from last
         swap(a->val, b->val);
         return head;
     }
