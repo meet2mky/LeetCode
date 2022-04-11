@@ -1,28 +1,15 @@
 class Solution {
 public:
     vector<vector<int>> shiftGrid(vector<vector<int>>& grid, int k) {
-        int m_ = grid.size();
-        int n_ = grid[0].size();
-        int n = n_*m_;
-        k=k%n;
-        auto get = [&](int i){
-            return grid[i/n_][i%n_];
-        };
-        auto set = [&](int i, int val){
-            grid[i/n_][i%n_] = val;
-        };
-        int cycles=__gcd(k,n);
-        for(int i=0;i<cycles;i++){
-            int j=(i+k)%n;
-            int prev=get(i);
-            while(j!=i){
-                int curr=get(j);
-                set(j,prev);
-                prev=curr;
-                j=(j+k)%n;
+        int m = grid.size(), n = grid[0].size();
+        k %= (m*n);
+        auto res = grid;
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                int loc = ((i*n + j) + k) %(m*n);
+                res[loc / n][loc % n] = grid[i][j];
             }
-            set(i,prev);
         }
-        return grid;
+        return res;
     }
 };
